@@ -1,0 +1,24 @@
+{
+  "name": "ops-pilot",
+  "version": "1.0.0",
+  "description": "OpsPilot — Autonomous Enterprise Operations Worker for CentrAlign AI",
+  "private": true,
+  "scripts": {
+    "install:all": "npm install && npm run install:backend && npm run install:frontend",
+    "install:backend": "cd backend && npm install",
+    "install:frontend": "cd frontend && npm install",
+    "dev:backend": "cd backend && npm run dev",
+    "dev:frontend": "cd frontend && npm run dev",
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "build:backend": "cd backend && npm run build",
+    "build:frontend": "cd frontend && npm run build",
+    "build": "npm run build:backend && npm run build:frontend",
+    "test": "cd backend && npm test",
+    "test:coverage": "cd backend && npm run test:coverage"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "author": "CentrAlign Hiring Candidate",
+  "license": "MIT"
+}
