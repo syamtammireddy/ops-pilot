@@ -17,16 +17,29 @@ export class LLMProvider {
   private openai: OpenAI | null = null;
   private isMock: boolean = false;
   private modelName: string;
+  private providerType: 'Gemini' | 'OpenAI' | 'Mock' = 'Mock';
 
   constructor() {
-    const apiKey = process.env.OPENAI_API_KEY;
-    this.modelName = process.env.OPENAI_MODEL || 'gpt-4o-mini';
+    const geminiKey = process.env.GEMINI_API_KEY;
+    const openaiKey = process.env.OPENAI_API_KEY;
 
-    if (apiKey && apiKey !== 'mock' && apiKey.trim() !== '' && !apiKey.includes('your_openai_api_key')) {
-      this.openai = new OpenAI({ apiKey });
+    if (geminiKey && geminiKey.trim() !== '' && !geminiKey.includes('your_gemini_api_key')) {
+      this.modelName = process.env.GEMINI_MODEL || 'gemini-2.5-flash';
+      this.openai = new OpenAI({
+        apiKey: geminiKey,
+        baseURL: 'https://generativelanguage.googleapis.com/v1beta/openai/'
+      });
       this.isMock = false;
+      this.providerType = 'Gemini';
+    } else if (openaiKey && openaiKey !== 'mock' && openaiKey.trim() !== '' && !openaiKey.includes('your_openai_api_key')) {
+      this.modelName = process.env.OPENAI_MODEL || 'gpt-4o-mini';
+      this.openai = new OpenAI({ apiKey: openaiKey });
+      this.isMock = false;
+      this.providerType = 'OpenAI';
     } else {
       this.isMock = true;
+      this.providerType = 'Mock';
+      this.modelName = 'Mock';
     }
   }
 
@@ -35,7 +48,7 @@ export class LLMProvider {
   }
 
   public getModelName(): string {
-    return this.isMock ? 'Deterministic Mock Provider (Offline / Tests)' : `OpenAI (${this.modelName})`;
+    return this.isMock ? 'Deterministic Mock Provider (Offline / Tests)' : `${this.providerType} (${this.modelName})`;
   }
 
   public async getNextAction(
@@ -47,7 +60,7 @@ export class LLMProvider {
       try {
         return await this.callOpenAI(goal, history);
       } catch (err: any) {
-        console.warn(`[LLMProvider] OpenAI API call failed (${err.message}). Falling back to deterministic reasoning mode.`);
+        console.warn(`[LLMProvider] ${this.providerType} API call failed (${err.message}). Falling back to deterministic reasoning mode.`);
         if (err.status === 429 || err.message?.includes('credits remaining') || err.message?.includes('billing')) {
           this.isMock = true;
         }
