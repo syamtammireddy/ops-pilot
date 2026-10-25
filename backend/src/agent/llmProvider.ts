@@ -22,7 +22,7 @@ export class LLMProvider {
     const apiKey = process.env.OPENAI_API_KEY;
     this.modelName = process.env.OPENAI_MODEL || 'gpt-4o-mini';
 
-    if (apiKey && apiKey !== 'mock' && apiKey.trim() !== '') {
+    if (apiKey && apiKey !== 'mock' && apiKey.trim() !== '' && !apiKey.includes('your_openai_api_key')) {
       this.openai = new OpenAI({ apiKey });
       this.isMock = false;
     } else {
@@ -48,6 +48,9 @@ export class LLMProvider {
         return await this.callOpenAI(goal, history);
       } catch (err: any) {
         console.warn(`[LLMProvider] OpenAI API call failed (${err.message}). Falling back to deterministic reasoning mode.`);
+        if (err.status === 429 || err.message?.includes('credits remaining') || err.message?.includes('billing')) {
+          this.isMock = true;
+        }
         return this.deterministicMockReasoning(goal, history, stepCount);
       }
     }
