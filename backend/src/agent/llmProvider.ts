@@ -24,7 +24,7 @@ export class LLMProvider {
     const openaiKey = process.env.OPENAI_API_KEY;
 
     if (geminiKey && geminiKey.trim() !== '' && !geminiKey.includes('your_gemini_api_key')) {
-      this.modelName = process.env.GEMINI_MODEL || 'gemini-2.5-flash';
+      this.modelName = process.env.GEMINI_MODEL || 'gemini-3.5-flash';
       this.openai = new OpenAI({
         apiKey: geminiKey,
         baseURL: 'https://generativelanguage.googleapis.com/v1beta/openai/'

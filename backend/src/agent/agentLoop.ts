@@ -277,7 +277,8 @@ export class AgentLoop {
         policyReason: policyResult.reason,
         toolResult: toolExecution.result || { error: toolExecution.error },
         observation: toolExecution.result || { success: false, error: toolExecution.error },
-        status: (toolExecution.success && (!toolExecution.result || toolExecution.result.success !== false)) ? 'SUCCESS' : 'FAILED'
+        status: (toolExecution.success && (!toolExecution.result || toolExecution.result.success !== false)) ? 'SUCCESS' : 'FAILED',
+        toolCallId: action.toolCall.id
       };
 
       this.taskStore.addStep(task.id, step);
@@ -315,10 +316,10 @@ CORE PRINCIPLES:
     ];
 
     for (const step of task.steps) {
-      const tcId = `call_${step.stepNumber}`;
+      const tcId = step.toolCallId || `call_${step.stepNumber}`;
       messages.push({
         role: 'assistant',
-        content: step.decisionSummary,
+        content: null,
         tool_calls: [
           {
             id: tcId,

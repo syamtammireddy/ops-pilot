@@ -21,6 +21,7 @@ export interface ExecutionStep {
   toolResult: any;
   observation: any;
   status: 'SUCCESS' | 'FAILED' | 'PENDING_APPROVAL';
+  toolCallId?: string;
 }
 
 export interface PendingApproval {
