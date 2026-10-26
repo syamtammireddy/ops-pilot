@@ -1,7 +1,7 @@
 # CentrAlign AI — Hiring Submission Form Answers
 
 ### 🌐 Live Demo & Submission Links
-- **Live Demo Link (Active Public HTTPS)**: [https://frames-ambient-verbal-governor.trycloudflare.com](https://frames-ambient-verbal-governor.trycloudflare.com)
+- **Live Demo Link (Active Public HTTPS)**: [https://litigation-bulletin-cartridges-symbols.trycloudflare.com](https://litigation-bulletin-cartridges-symbols.trycloudflare.com)
 - **Local Dashboard**: `http://localhost:5173` (or `http://localhost:4000`)
 - **Demo Video Script**: [`DEMO_SCRIPT.md`](file:///home/syam/IPS/DEMO_SCRIPT.md) (timed 2.5 min walkthrough)
 
