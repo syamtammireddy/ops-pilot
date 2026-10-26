@@ -20,6 +20,6 @@
   "devDependencies": {
     "concurrently": "^8.2.2"
   },
-  "author": "CentrAlign Hiring Candidate",
+  "author": "Syam Tammireddi <syamtammireddi@gmail.com>",
   "license": "MIT"
 }
