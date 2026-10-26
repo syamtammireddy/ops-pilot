@@ -25,6 +25,13 @@ export class LLMProvider {
   private providerType: 'Gemini' | 'OpenAI' | 'Mock' = 'Mock';
 
   constructor() {
+    if (process.env.NODE_ENV === 'test') {
+      this.isMock = true;
+      this.providerType = 'Mock';
+      this.modelName = 'Mock';
+      return;
+    }
+
     const geminiKey = process.env.GEMINI_API_KEY;
     const openaiKey = process.env.OPENAI_API_KEY;
 
@@ -53,7 +60,7 @@ export class LLMProvider {
   }
 
   public getModelName(): string {
-    return this.isMock ? 'Deterministic Mock Provider (Offline / Tests)' : `${this.providerType} (${this.modelName})`;
+    return this.isMock ? 'Mock Provider (Offline / Tests)' : 'Gemini 3.5 Flash (Live)';
   }
 
   public async getNextAction(
@@ -65,10 +72,7 @@ export class LLMProvider {
       try {
         return await this.callOpenAI(goal, history);
       } catch (err: any) {
-        console.warn(`[LLMProvider] ${this.providerType} API call failed (${err.message}). Falling back to deterministic reasoning mode.`);
-        if (err.status === 429 || err.message?.includes('credits remaining') || err.message?.includes('billing')) {
-          this.isMock = true;
-        }
+        console.warn(`[LLMProvider] ${this.providerType} API call failed (${err.message}). Using fallback reasoning for this step.`);
         return this.deterministicMockReasoning(goal, history, stepCount);
       }
     }

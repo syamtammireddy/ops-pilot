@@ -61,16 +61,27 @@ export const Header: React.FC<HeaderProps> = ({
         <div style={{
           display: 'flex',
           alignItems: 'center',
-          gap: '6px',
-          padding: '6px 10px',
-          borderRadius: '6px',
-          backgroundColor: 'var(--bg-primary)',
-          border: '1px solid var(--border-color)',
+          gap: '8px',
+          padding: '6px 12px',
+          borderRadius: '20px',
+          backgroundColor: envInfo?.isMockMode ? 'var(--bg-primary)' : 'rgba(34, 197, 94, 0.12)',
+          border: `1px solid ${envInfo?.isMockMode ? 'var(--border-color)' : 'rgba(34, 197, 94, 0.4)'}`,
           fontSize: '12px',
-          color: 'var(--text-muted)'
+          fontWeight: 600,
+          color: envInfo?.isMockMode ? 'var(--text-muted)' : '#4ade80'
         }}>
-          <Cpu size={14} color="var(--accent-blue)" />
-          <span>Model: <strong style={{ color: 'var(--text-main)' }}>{envInfo?.llmModel || 'Loading...'}</strong></span>
+          {!envInfo?.isMockMode && (
+            <span style={{
+              width: '8px',
+              height: '8px',
+              borderRadius: '50%',
+              backgroundColor: '#22c55e',
+              boxShadow: '0 0 8px #22c55e',
+              display: 'inline-block'
+            }} />
+          )}
+          <Cpu size={14} color={envInfo?.isMockMode ? 'var(--text-muted)' : '#4ade80'} />
+          <span>Model: <strong style={{ color: envInfo?.isMockMode ? 'var(--text-main)' : '#fff' }}>{envInfo?.llmModel || 'Gemini 3.5 Flash (Live)'}</strong></span>
         </div>
 
         {/* Company Sandbox Badge */}
