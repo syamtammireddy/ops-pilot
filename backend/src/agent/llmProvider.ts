@@ -1,6 +1,11 @@
 import OpenAI from 'openai';
+import dotenv from 'dotenv';
+import path from 'path';
 import { ConversationMessage } from './types';
 import { toolRegistryInstance } from '../tools/toolRegistry';
+
+dotenv.config();
+dotenv.config({ path: path.resolve(__dirname, '../../../.env') });
 
 export interface NextAgentAction {
   decisionSummary: string;

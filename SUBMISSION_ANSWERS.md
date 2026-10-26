@@ -1,7 +1,7 @@
 # CentrAlign AI — Hiring Submission Form Answers
 
 ### 🌐 Live Demo & Submission Links
-- **Live Demo Link (Active Public HTTPS)**: [https://graphical-med-covering-mixer.trycloudflare.com](https://graphical-med-covering-mixer.trycloudflare.com)
+- **Live Demo Link (Active Public HTTPS)**: [https://correctly-rpm-coalition-mambo.trycloudflare.com](https://correctly-rpm-coalition-mambo.trycloudflare.com)
 - **Local Dashboard**: `http://localhost:5173` (or `http://localhost:4000`)
 - **Demo Video Script**: [`DEMO_SCRIPT.md`](file:///home/syam/IPS/DEMO_SCRIPT.md) (timed 2.5 min walkthrough)
 
