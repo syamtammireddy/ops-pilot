@@ -199,7 +199,7 @@ sequenceDiagram
 
 ### 1. Clone Repository & Install All Dependencies
 ```bash
-git clone <repo-url> ops-pilot
+git clone https://github.com/syamtammireddy/ops-pilot.git
 cd ops-pilot
 
 # Install root, backend, and frontend dependencies in one command
