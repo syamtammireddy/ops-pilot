@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>OpsPilot — Video Demo & Narration Script</title>
+<style>
+  @page {
+    size: A4;
+    margin: 18mm 15mm 18mm 15mm;
+  }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: #1e293b;
+    background: #ffffff;
+    line-height: 1.5;
+    font-size: 11pt;
+    margin: 0;
+    padding: 0;
+  }
+  .header-card {
+    border-bottom: 2px solid #3b82f6;
+    padding-bottom: 12px;
+    margin-bottom: 20px;
+  }
+  h1 {
+    font-size: 20pt;
+    color: #0f172a;
+    margin: 0 0 4px 0;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+  }
+  .subtitle {
+    color: #64748b;
+    font-size: 11pt;
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+  .meta-grid {
+    display: flex;
+    gap: 16px;
+    font-size: 9.5pt;
+    color: #475569;
+    background: #f8fafc;
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid #e2e8f0;
+  }
+  .meta-grid strong {
+    color: #0f172a;
+  }
+  .setup-box {
+    background: #eff6ff;
+    border: 1px solid #bfdbfe;
+    border-radius: 6px;
+    padding: 10px 14px;
+    margin-bottom: 22px;
+    font-size: 9.5pt;
+  }
+  .setup-box h3 {
+    margin: 0 0 6px 0;
+    color: #1d4ed8;
+    font-size: 11pt;
+  }
+  .setup-box ul {
+    margin: 0;
+    padding-left: 18px;
+  }
+  .scene-card {
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    margin-bottom: 18px;
+    overflow: hidden;
+    page-break-inside: avoid;
+  }
+  .scene-header {
+    background: #0f172a;
+    color: #ffffff;
+    padding: 8px 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .scene-title {
+    font-weight: 700;
+    font-size: 12pt;
+  }
+  .scene-time {
+    background: #3b82f6;
+    color: #fff;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 9pt;
+    font-weight: 700;
+    font-family: monospace;
+  }
+  .scene-body {
+    padding: 12px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .action-block {
+    background: #f1f5f9;
+    border-left: 4px solid #3b82f6;
+    padding: 8px 12px;
+    border-radius: 0 4px 4px 0;
+    font-size: 10pt;
+  }
+  .action-block strong {
+    color: #1e3a8a;
+  }
+  .observe-block {
+    background: #f0fdf4;
+    border-left: 4px solid #22c55e;
+    padding: 8px 12px;
+    border-radius: 0 4px 4px 0;
+    font-size: 10pt;
+  }
+  .observe-block strong {
+    color: #166534;
+  }
+  .script-block {
+    background: #f8fafc;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    padding: 10px 12px;
+  }
+  .script-label {
+    font-size: 8.5pt;
+    text-transform: uppercase;
+    font-weight: 800;
+    color: #64748b;
+    letter-spacing: 0.05em;
+    margin-bottom: 4px;
+  }
+  .script-text {
+    font-style: italic;
+    color: #0f172a;
+    font-size: 10.5pt;
+    line-height: 1.55;
+  }
+  .footer-links {
+    margin-top: 15px;
+    padding: 10px 14px;
+    background: #fafafa;
+    border: 1px solid #e5e5e5;
+    border-radius: 6px;
+    font-size: 9.5pt;
+    page-break-inside: avoid;
+  }
+</style>
+</head>
+<body>
+
+<div class="header-card">
+  <h1>OpsPilot — Video Demo & Narration Script</h1>
+  <div class="subtitle">CentrAlign AI Engineering Hiring Assignment · Autonomous Operations Worker</div>
+  <div class="meta-grid">
+    <div><strong>Presenter:</strong> Syam Tammireddi</div>
+    <div><strong>Target Duration:</strong> 2.5 – 3.0 Minutes</div>
+    <div><strong>Active Model:</strong> Gemini 3.5 Flash (Live)</div>
+    <div><strong>Dashboard:</strong> http://localhost:5173</div>
+  </div>
+</div>
+
+<div class="setup-box">
+  <h3>🛠️ Pre-Recording Checklist (Before Clicking Record)</h3>
+  <ul>
+    <li>Open browser to <strong>http://localhost:5173</strong> (or public tunnel link).</li>
+    <li>Click <strong>"Reset Sandbox"</strong> (top-right circular button) to guarantee a clean baseline state.</li>
+    <li>Verify top bar indicates <strong>Model: Gemini 3.5 Flash (Live)</strong> with a glowing green dot.</li>
+    <li>Launch Loom or OBS screen recorder with microphone enabled.</li>
+  </ul>
+</div>
+
+<!-- Scene 1 -->
+<div class="scene-card">
+  <div class="scene-header">
+    <div class="scene-title">Scene 1: Introduction & Architecture</div>
+    <div class="scene-time">0:00 – 0:30</div>
+  </div>
+  <div class="scene-body">
+    <div class="action-block">
+      <strong>👉 Action / Mouse Pointer:</strong> Keep mouse in the top bar. Hover over "OpsPilot: Autonomous AI Worker" and "Model: Gemini 3.5 Flash (Live)".
+    </div>
+    <div class="observe-block">
+      <strong>👀 Observed on Screen:</strong> Dark-mode 3-panel UI. Left: Objective & Scenarios. Center: Execution Trace (IDLE). Right: ERP Ledger, Document Vault, Slack Hub.
+    </div>
+    <div class="script-block">
+      <div class="script-label">🗣️ Spoken Script</div>
+      <div class="script-text">
+        "Hi everyone, my name is Syam Tammireddi, and today I'm demonstrating OpsPilot, an autonomous enterprise AI employee built for the CentrAlign AI engineering evaluation.<br><br>
+        Traditional enterprise automation relies on rigid RPA scripts that break when APIs time out, or simple chatbots that can't execute real database writes.<br><br>
+        OpsPilot is an autonomous operations worker built completely from scratch in TypeScript—without LangChain or CrewAI—running live on Google Gemini 3.5 Flash. It follows the complete <strong>Goal &rarr; Understand &rarr; Plan &rarr; Execute &rarr; Observe &rarr; Adapt &rarr; Verify</strong> lifecycle across documents, ERP ledgers, and communications channels."
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Scene 2 -->
+<div class="scene-card">
+  <div class="scene-header">
+    <div class="scene-title">Scene 2: Standard Autonomous Flow ($4,200 Invoice)</div>
+    <div class="scene-time">0:30 – 1:15</div>
+  </div>
+  <div class="scene-body">
+    <div class="action-block">
+      <strong>👉 Action / Buttons to Press:</strong>
+      1. Click button: <strong>[1. Standard Autonomous Invoice]</strong> on left.<br>
+      2. Click the blue button: <strong>[Run Autonomous Worker]</strong>.
+    </div>
+    <div class="observe-block">
+      <strong>👀 Observed on Screen:</strong> Steps 1 to 8 stream live in center trace. Every step has a green <code>ALLOW</code> shield. Step 4 calls <code>read_company_policy</code>. In right panel, ERP Ledger updates: INV-2024-001 turns to <code>PAID ($4,200.00)</code> with a bank reference. Top badge turns green: <code>COMPLETED & VERIFIED</code>.
+    </div>
+    <div class="script-block">
+      <div class="script-label">🗣️ Spoken Script</div>
+      <div class="script-text">
+        "Let's trigger our first scenario with a natural language goal: 'Process the latest unpaid vendor invoice, follow company payment policy, and complete payment if authorized.'<br><br>
+        Watch the live execution trace stream step-by-step:
+        In Steps 1 & 2, the agent calls <code>search_documents</code> and <code>read_document</code>, discovering an unpaid invoice from Acme Cloud for $4,200.
+        In Step 3, it queries our NetSuite ERP ledger to confirm it hasn't already been paid.
+        In Step 4, the worker independently consults our internal company policy manual to discover spending rules. It reads that invoices under $5,000 can be paid autonomously.
+        In Steps 5 and 6, it registers the invoice in the ERP and dispatches an ACH bank transfer.
+        In Steps 7 and 8, it verifies ledger status and alerts the #finance-approvals Slack channel.<br><br>
+        Notice the green <strong>ALLOW</strong> badge on each step—every action was authorized by an independent Policy Engine before execution."
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Scene 3 -->
+<div class="scene-card">
+  <div class="scene-header">
+    <div class="scene-title">Scene 3: Chaos Injection & Autonomous Failure Recovery</div>
+    <div class="scene-time">1:15 – 1:55</div>
+  </div>
+  <div class="scene-body">
+    <div class="action-block">
+      <strong>👉 Action / Buttons to Press:</strong>
+      1. Click top-right <strong>[Reset Sandbox]</strong>.<br>
+      2. Click button: <strong>[2. Failure Injection & Recovery]</strong> (Failure Mode switches to <code>INJECTED (503)</code>).<br>
+      3. Click blue button: <strong>[Run Autonomous Worker]</strong>.
+    </div>
+    <div class="observe-block">
+      <strong>👀 Observed on Screen:</strong> Step 6 <code>execute_payment</code> turns RED with <code>GATEWAY_TIMEOUT (503)</code>. Step 7 immediately adapts with decision: <em>'Payment failed with retryable timeout. Verifying zero debits and re-executing transaction.'</em> Step 7 re-calls <code>execute_payment</code> and turns GREEN (SUCCESS)! Finishes with <code>COMPLETED & VERIFIED</code>.
+    </div>
+    <div class="script-block">
+      <div class="script-label">🗣️ Spoken Script</div>
+      <div class="script-text">
+        "Now let's test failure recovery, which is critical for CentrAlign's Observe &rarr; Adapt requirement. I've enabled failure injection mode, which simulates a bank payment gateway network partition.<br><br>
+        Look at Step 6: When the agent attempts payment settlement, the gateway returns a 503 Gateway Timeout with <code>retryable: true</code>.<br><br>
+        Instead of crashing or failing silently, OpsPilot observes the structured error from the sandbox, confirms that no funds were debited, and autonomously adapts by issuing an immediate retry.<br><br>
+        The second payment succeeds, the ledger is updated, and the task completes successfully."
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Scene 4 -->
+<div class="scene-card">
+  <div class="scene-header">
+    <div class="scene-title">Scene 4: High-Value Human Approval Gate ($12,500 Invoice)</div>
+    <div class="scene-time">1:55 – 2:35</div>
+  </div>
+  <div class="scene-body">
+    <div class="action-block">
+      <strong>👉 Action / Buttons to Press:</strong>
+      1. Click top-right <strong>[Reset Sandbox]</strong>.<br>
+      2. Click button: <strong>[3. High-Value Approval Gate]</strong>.<br>
+      3. Click blue button: <strong>[Run Autonomous Worker]</strong>.<br>
+      4. Wait 2 seconds &rarr; Agent pauses in <code>WAITING_FOR_APPROVAL</code>.<br>
+      5. On right panel, click green button: <strong>[Approve & Authorize Settlement]</strong>.
+    </div>
+    <div class="observe-block">
+      <strong>👀 Observed on Screen:</strong> Trace halts at Step 6 with amber badge <code>WAITING_FOR_APPROVAL</code>. High-visibility red Approval Card appears: Snowflake ($12,500.00). When Approve is clicked, loop instantly unfreezes, settles payment, and completes with <code>COMPLETED & VERIFIED</code>.
+    </div>
+    <div class="script-block">
+      <div class="script-label">🗣️ Spoken Script</div>
+      <div class="script-text">
+        "Next: what happens when an action exceeds autonomous authority?<br><br>
+        Here the agent discovers a $12,500 invoice for Snowflake. When it reads company policy, it discovers that any transaction equal to or exceeding $5,000 strictly requires Finance Director sign-off.<br><br>
+        The independent Policy Engine intercepts the proposed payment, marks it <code>REQUIRE_APPROVAL</code>, and halts the loop. The LLM cannot bypass this.<br><br>
+        The UI surfaces this manager approval card citing the exact policy violation. As Finance Director, I click <strong>[Approve]</strong>.<br><br>
+        The exact same agent loop resumes, executes the disbursement, and commits the transaction to the ledger."
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Scene 5 -->
+<div class="scene-card">
+  <div class="scene-header">
+    <div class="scene-title">Scene 5: Independent Verification & Closing</div>
+    <div class="scene-time">2:35 – 3:00</div>
+  </div>
+  <div class="scene-body">
+    <div class="action-block">
+      <strong>👉 Action / Mouse Pointer:</strong> Point mouse to the <strong>Independent Verification Dossier</strong> in the upper right column. Hover over the 5 green checkmarks.
+    </div>
+    <div class="observe-block">
+      <strong>👀 Observed on Screen:</strong> Box titled <strong>Independent Verification Dossier (VERIFIED)</strong> with 5/5 passed checks: ERP Ledger Existence, Settlement Status Verification (PAID), Bank Settlement Reference, Amount Integrity, and Stakeholder Notification.
+    </div>
+    <div class="script-block">
+      <div class="script-label">🗣️ Spoken Script</div>
+      <div class="script-text">
+        "Finally, look at this <strong>Independent Verification Dossier</strong>.<br><br>
+        We never rely on the LLM's own claim or a tool's 200 OK status code as proof of success. Our standalone Verification Engine queries the actual database to confirm five ground-truth checks: ledger existence, settlement status, valid bank reference, exact line-item amount matching, and audit delivery.<br><br>
+        All five checks pass, producing this tamper-evident audit record.<br><br>
+        That is OpsPilot: a dependable, policy-governed, self-healing AI employee for enterprise operations. Thank you!"
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="footer-links">
+  <strong>Submission Links:</strong><br>
+  • <strong>Live Demo:</strong> https://litigation-bulletin-cartridges-symbols.trycloudflare.com<br>
+  • <strong>GitHub Repo:</strong> https://github.com/syamtammireddy/ops-pilot<br>
+  • <strong>Local UI:</strong> http://localhost:5173
+</div>
+
+</body>
+</html>
