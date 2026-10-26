@@ -1,5 +1,12 @@
 # CentrAlign AI — Hiring Submission Form Answers
 
+### 🌐 Live Demo & Submission Links
+- **Live Demo Link (Active Public HTTPS)**: [https://graphical-med-covering-mixer.trycloudflare.com](https://graphical-med-covering-mixer.trycloudflare.com)
+- **Local Dashboard**: `http://localhost:5173` (or `http://localhost:4000`)
+- **Demo Video Script**: [`DEMO_SCRIPT.md`](file:///home/syam/IPS/DEMO_SCRIPT.md) (timed 2.5 min walkthrough)
+
+---
+
 ### 1. In 3–5 sentences, what did you build?
 I built **OpsPilot**, an autonomous enterprise AI employee designed to execute recurring financial operations across documents, ERP ledgers, and communications channels. The system accepts natural language operational objectives, dynamically discovers and reads vendor invoices, queries an in-memory ERP ledger (simulating NetSuite/Odoo), and consults internal corporate operating procedures to determine spending limits and compliance rules. It enforces an independent policy engine that gates high-risk operations behind human manager approval, dynamically adapts and retries when encountering transient gateway failures, and independently verifies the real database state before producing an auditable evidence dossier. Rather than relying on external agent frameworks like LangChain or CrewAI, the entire agent decision loop, policy layer, and verification engine are engineered from scratch in clean TypeScript.
 
@@ -30,7 +37,7 @@ OpsPilot uses a decoupled 3-tier architecture:
 ---
 
 ### 5. What models, frameworks, APIs, libraries, AI coding tools, or existing projects did you use?
-- **LLM**: OpenAI API (`gpt-4o-mini`) using native function/tool calling.
+- **LLM Providers**: Google Gemini (`gemini-3.5-flash`) and OpenAI API (`gpt-4o-mini`) using native structured function/tool calling, plus a deterministic offline mock provider for automated CI/CD test suites.
 - **Backend**: Node.js, TypeScript, Express, Zod (runtime schema validation), dotenv, cors, uuid.
 - **Frontend**: React 18, TypeScript, Vite, Lucide React (icons), Server-Sent Events (SSE).
 - **Testing**: Jest, ts-jest, supertest.
