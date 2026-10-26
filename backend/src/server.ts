@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import path from 'path';
+import fs from 'fs';
 import { apiRouter } from './api/routes';
 import { llmProviderInstance } from './agent/llmProvider';
 
@@ -31,6 +32,16 @@ app.get('/health', (_req, res) => {
     llmProvider: llmProviderInstance.getModelName()
   });
 });
+
+// Serve frontend build if available
+const frontendDist = path.resolve(__dirname, '../../frontend/dist');
+if (fs.existsSync(frontendDist)) {
+  app.use(express.static(frontendDist));
+  app.get('*', (req, res, next) => {
+    if (req.path.startsWith('/api') || req.path === '/health') return next();
+    res.sendFile(path.join(frontendDist, 'index.html'));
+  });
+}
 
 const server = app.listen(port, () => {
   console.log(`=======================================================`);

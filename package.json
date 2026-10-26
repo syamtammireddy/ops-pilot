@@ -13,6 +13,7 @@
     "build:backend": "cd backend && npm run build",
     "build:frontend": "cd frontend && npm run build",
     "build": "npm run build:backend && npm run build:frontend",
+    "start": "cd backend && npm start",
     "test": "cd backend && npm test",
     "test:coverage": "cd backend && npm run test:coverage"
   },
